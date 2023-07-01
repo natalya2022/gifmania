@@ -1,0 +1,8 @@
+.gif-grid__picture {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    min-height: 282px;
+    background: white;
+    object-fit: cover;
+}
