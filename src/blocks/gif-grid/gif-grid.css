@@ -1,0 +1,10 @@
+.gif-grid {
+    margin: 0;
+    padding: 0 19px;
+}
+
+@media screen and (min-width: 880px) {
+    .gif-grid {
+        padding: 0;
+    }
+}

@@ -1,0 +1,13 @@
+.gif-grid__place {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+@media screen and (min-width: 880px) {
+    .gif-grid__place {
+        max-width: 282px;
+    }
+}
