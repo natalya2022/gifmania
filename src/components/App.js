@@ -5,7 +5,7 @@ import Search from './Search';
 import Trends from './Trends';
 import Random from './Random';
 import Header from './Header';
-
+import Api from '../utils/api';
 function App() {
   return (
     <div className="root">
