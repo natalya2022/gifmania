@@ -2,7 +2,9 @@ import React from 'react';
 
 const Random = () => {
   return (
-    <div>Random</div>
+    <main className="content">            
+      <Card gif={gif}/>
+    </main>
   )
 }
 
