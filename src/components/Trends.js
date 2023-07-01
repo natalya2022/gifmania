@@ -1,10 +1,10 @@
 import React from 'react';
 import GifGrid from './GifGrid';
 
-const Trends = () => {
+const Trends = ({ gifs }) => {
   return (
     <main className="content">            
-      <GifGrid />
+      <GifGrid gifs={gifs}/>
     </main>
   )
 }

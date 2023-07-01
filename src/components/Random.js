@@ -1,8 +1,13 @@
 import React from 'react';
+import GifGrid from './GifGrid';
+import Card from './Card';
 
-const Random = () => {
+const Random = ({ gif }) => {
+  console.log(gif);
   return (
-    <div>Random</div>
+    <main className="content">            
+      <GifGrid gifs={gif}/>
+    </main>
   )
 }
 
