@@ -1,4 +1,11 @@
 .header__logo {
-    width: clamp(104px, 20.5vw, 142px);
-    height: clamp(25px, 5vw, 33px);
+    width: 250px;
+    display: block;
+    margin: auto;
+}
+
+@media screen and (min-width: 619px) {
+    .header__logo {
+        width: 380px;
+    }
 }

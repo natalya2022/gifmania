@@ -23,10 +23,7 @@ function App() {
       .then(res => {
         setSearchGifs(res[0].data);
         setTrendingGifs(res[0].data);
-        setRandomGif(res[1].data);
-        console.log(res[1]);
-        console.log(res[1].data);
-        console.log(randomGif);
+        setRandomGif(res[1].data);        
       })
       .catch(err => {
         console.log(err.status);
@@ -62,22 +59,24 @@ function App() {
     setIsToolMessageOpen(true);
   }
 
+
   function handleSearchGifs(word) {
     api.search(word).then(res => {
       console.log(res);
       if (res.data.length === 0) {
         // alert('Результатов не найдено!');
-        setToolMessageText({ text: 'Результатов не найдено!' });
-        handleToolMessageOpen();
-      } else {
+        setToolMessageText({text: 'Результатов не найдено!'});
+        handleToolMessageOpen();        
+      } else {      
         setSearchGifs(res.data);
       }
     });
   }
 
-  const closeMessage = () => {
+  const closeMessage = () => {    
     setIsToolMessageOpen(false);
   };
+
 
   return (
     <div className="root">
@@ -87,15 +86,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Search gifs={searchGifs} onSearch={handleSearchGifs} />} />
             <Route path="/trends" element={<Trends gifs={trendingGifs} />} />
-            <Route path="/random" element={<Random gif={randomGif} />} />
+            <Route path="/random" element={<Random gif={randomGif} gifs={trendingGifs}/>} />
             <Route path="*" element={<Search to="/" replace />} />
           </Routes>
           <Footer />
           <ToolMessage
-            onClose={closeMessage}
+            onClose={closeMessage}          
             toolMessage={toolMessageText}
             isOpen={isToolMessageOpen}
           />
+
         </div>
       </div>
     </div>

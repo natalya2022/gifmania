@@ -1,21 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import headerLogo from './../images/gif-svgrepo-com.svg';
+import { NavLink } from 'react-router-dom';
+// import headerLogo from './../images/logo12.svg';
+import headerLogo from './../images/logo22.png';
 
 const Header = () => {
   return (
     <header className="header">
       <img src={headerLogo} alt="Логотип" className="header__logo" />
-      <div className="header__navbar">
-        <Link to="/" className="header__link">
+      <div className="header__navbar">        
+        <NavLink to="/" className="header__link">
           Поиск
-        </Link>
-        <Link to="/trends" className="header__link">
+        </NavLink>
+        <NavLink to="/trends" className="header__link">
           Тренды
-        </Link>
-        <Link to="/random" className="header__link">
+        </NavLink>
+        <NavLink to="/random" className="header__link">
           Случайный гиф
-        </Link>
+        </NavLink>
       </div>
     </header>
   );

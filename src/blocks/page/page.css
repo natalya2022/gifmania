@@ -3,9 +3,10 @@
     max-width: 1280px;
     margin: 0 auto;
     font-family: 'Inter', Arial, sans-serif;
-    background: black;
+    /* background: black; */
+    background: #010954;
 }
 
-* {
+/* * {
     outline: 1px solid red;
-}
+} */

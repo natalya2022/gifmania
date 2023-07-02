@@ -1,0 +1,9 @@
+.container__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 40px auto;
+}

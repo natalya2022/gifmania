@@ -1,16 +1,15 @@
 import React from 'react';
-// import GifGrid from './GifGrid';
-// import Card from './Card';
+import GifGrid from './GifGrid';
 
-const Random = ({ gif }) => {
-  console.log('11', gif);
+const Random = ({ gif, gifs }) => {
+  if (!gif?.images?.downsized?.url) {return <></>};  
   return (
     <main className="content">
-      {/* <Card gif={gif} /> */}
-      <img src={gif.images.downsized.url} alt={gif.title} className="gif-grid__picture" />
-      <div className="gif-grid__rectangle">
-        <h2 className="gif-grid__title">{gif.title}</h2>
+      <div className="container">
+        <img src={gif.images.downsized.url} alt={gif.title} className="container__image" />
+        <h2 className="container__title">{gif.title}</h2>
       </div>
+      <GifGrid gifs={gifs} />
     </main>
   );
 };
