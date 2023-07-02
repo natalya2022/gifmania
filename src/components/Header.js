@@ -10,10 +10,10 @@ const Header = ({ onTrendClick, onRandomClick }) => {
         <NavLink to="/" className="header__link">
           Поиск
         </NavLink>
-        <NavLink to="/trends" className="header__link">
+        <NavLink to="/trends" className="header__link" onClick={onTrendClick}>
           Тренды
         </NavLink>
-        <NavLink to="/random" className="header__link">
+        <NavLink to="/random" className="header__link" onClick={onRandomClick}>
           Случайный гиф
         </NavLink>
       </div>

@@ -6,11 +6,13 @@ import Trends from './Trends';
 import Random from './Random';
 import Header from './Header';
 import Footer from './Footer';
+import Card from './Card';
 // import Api from '../utils/api';
 import { api } from '../utils/api';
 import ToolMessage from './ToolMessage';
 
 function App() {
+  const [gifs, setGifs] = useState([]);
   const [trendingGifs, setTrendingGifs] = useState([]);
   const [searchGifs, setSearchGifs] = useState([]);
   const [randomGif, setRandomGif] = useState({});
@@ -23,7 +25,8 @@ function App() {
       .then(res => {
         setSearchGifs(res[0].data);
         setTrendingGifs(res[0].data);
-        setRandomGif(res[1].data);        
+        setRandomGif(res[1].data);   
+        setGifs(res[0].data);     
       })
       .catch(err => {
         console.log(err.status);
@@ -55,6 +58,40 @@ function App() {
   //     });
   // }, []);
 
+  function handleRandomClick() {
+    api.random().then((res) => {
+      setRandomGif(res.data);
+    })
+  }
+  function handleClickMenu() {
+    api.trending().then((res) => {
+      setPage(1);
+      setGifs(res.data);
+    })
+  }
+  const [currentPage, setPage] = React.useState(1);
+  const perPage = 9;
+  function handleClick(evt) {
+    setPage(Number(evt.target.id));
+  }
+  const indexOfLast = currentPage * perPage;
+  const indexOfFirst = indexOfLast - perPage;
+  const currentList = gifs.slice(indexOfFirst, indexOfLast);
+  const renderList = currentList.map((page, index) => {
+    return <Card  key={index} gif={page}></Card>;
+  });
+  const pageNumber = [];
+  for (let i = 1; i<=Math.ceil(gifs.length / perPage); i++) {
+    pageNumber.push(i);
+  }
+
+  const renderPageNumber = pageNumber.map(number => {
+    return (
+      <li className='footer__page' key={number} id={number} onClick={handleClick}>
+        {number}
+      </li>
+    );
+  });
   function handleToolMessageOpen() {
     setIsToolMessageOpen(true);
   }
@@ -68,7 +105,7 @@ function App() {
         setToolMessageText({text: 'Результатов не найдено!'});
         handleToolMessageOpen();        
       } else {      
-        setSearchGifs(res.data);
+        setGifs(res.data);
       }
     });
   }
@@ -82,14 +119,13 @@ function App() {
     <div className="root">
       <div className="page">
         <div className="wrap">
-          <Header />
+          <Header onRandomClick={handleRandomClick} onTrendClick={handleClickMenu}/>
           <Routes>
-            <Route path="/" element={<Search gifs={searchGifs} onSearch={handleSearchGifs} />} />
-            <Route path="/trends" element={<Trends gifs={trendingGifs} />} />
-            <Route path="/random" element={<Random gif={randomGif} gifs={trendingGifs}/>} />
+            <Route path="/" element={<Search gifs={renderList} onSearch={handleSearchGifs} renderPages={renderPageNumber} />} />
+            <Route path="/trends" element={<Trends gifs={renderList} renderPages={renderPageNumber} />} />
+            <Route path="/random" element={<Random gif={randomGif} gifs={renderList}/>} />
             <Route path="*" element={<Search to="/" replace />} />
           </Routes>
-          <Footer />
           <ToolMessage
             onClose={closeMessage}          
             toolMessage={toolMessageText}

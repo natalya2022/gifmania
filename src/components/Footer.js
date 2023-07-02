@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Footer = ({ pageNumber }) => {
-
+const Footer = ({ renderPages }) => {
   return (
     <div className="footer">
       <ul className="footer__list">
-        {pageNumber}
+        {renderPages}
       </ul>
     </div>
   )
