@@ -24,7 +24,7 @@ const Search = ({ onSearch, gifs, renderPages }) => {
           <button className="search__submit" type="submit"></button>
         </form>
       </div>
-      <GifGrid gifs={gifs}/>
+      <GifGrid gifs={gifs} />
       <Footer renderPages={renderPages}/>
     </>
   )

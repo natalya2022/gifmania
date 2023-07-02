@@ -61,6 +61,8 @@ function App() {
   function handleRandomClick() {
     api.random().then((res) => {
       setRandomGif(res.data);
+      setGifs(trendingGifs);
+      setPage(1);
     })
   }
   function handleClickMenu() {
@@ -131,7 +133,6 @@ function App() {
             toolMessage={toolMessageText}
             isOpen={isToolMessageOpen}
           />
-
         </div>
       </div>
     </div>
