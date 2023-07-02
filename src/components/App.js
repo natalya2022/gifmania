@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './../index.css';
 import Search from './Search';

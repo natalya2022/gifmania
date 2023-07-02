@@ -1,9 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import headerLogo from './../images/logo12.svg';
 import headerLogo from './../images/logo22.png';
 
-const Header = () => {
+const Header = ({ onTrendClick, onRandomClick }) => {
   return (
     <header className="header">
       <img src={headerLogo} alt="Логотип" className="header__logo" />
