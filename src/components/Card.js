@@ -1,5 +1,4 @@
 import React from 'react';
-import baikal from './../images/baikal.jpg'; 
 
 const Card = ({ gif }) => {
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import GifGrid from './GifGrid';
-const Search = ({ gifs, onSearch }) => {
+import Footer from './Footer';
+const Search = ({ onSearch, gifs, pageNumber }) => {
   const [search, setSearch] = React.useState({search: ""});
   function handleChange(evt) {
     const {name, value} = evt.target;
@@ -13,6 +14,7 @@ const Search = ({ gifs, onSearch }) => {
     evt.preventDefault();
     onSearch(search.search);
   }
+
   return (
     <>
       <div className="search">
@@ -23,6 +25,7 @@ const Search = ({ gifs, onSearch }) => {
         </form>
       </div>
       <GifGrid gifs={gifs}/>
+      <Footer pageNumber={pageNumber}/>
     </>
   )
 }

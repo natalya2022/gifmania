@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const Footer = () => {
+const Footer = ({ pageNumber }) => {
+
   return (
-    <div className="footer"></div>
+    <div className="footer">
+      <ul className="footer__list">
+        {pageNumber}
+      </ul>
+    </div>
   )
 }
 
