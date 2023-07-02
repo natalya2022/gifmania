@@ -1,12 +1,12 @@
 import React from 'react';
 import GifGrid from './GifGrid';
 
-const Trends = () => {
+const Trends = ({ gifs }) => {
   return (
-    <main className="content">            
-      <GifGrid />
+    <main className="content">
+      <GifGrid gifs={gifs} />
     </main>
-  )
-}
+  );
+};
 
 export default Trends;

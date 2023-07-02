@@ -1,12 +1,12 @@
 import React from 'react';
-import baikal from './../images/baikal.jpg'; 
 
-const Card = () => {
+const Card = ({ gif }) => {
+  // console.log(gif);
   return (
     <li className="gif-grid__place">
-      <img src={baikal} alt="Байкал" className="gif-grid__picture" />
+      <img src={gif.images.downsized.url} alt={gif.title} className="gif-grid__picture" />
       <div className="gif-grid__rectangle">
-        <h2 className="gif-grid__title">Название</h2>
+        <h2 className="gif-grid__title">{gif.title}</h2>
       </div>
     </li>
   );
