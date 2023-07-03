@@ -12,6 +12,7 @@ import ToolMessage from './ToolMessage';
 
 function App() {
   const [gifs, setGifs] = useState([]);
+  const [searchGifs, setSearchGifs] = useState([]);
   const [trendingGifs, setTrendingGifs] = useState([]);
   const [randomGif, setRandomGif] = useState({});
   const [isToolMessageOpen, setIsToolMessageOpen] = useState(false);
@@ -28,31 +29,6 @@ function App() {
         console.log(err.status);
       });
   }, []);
-
-  // React.useEffect(() => {
-  //   api
-  //     .trending()
-  //     .then(res => {
-  //       console.log(res);
-  //       setTrendingGifs(res.data);
-  //     })
-  //     .catch(err => {
-  //       console.log(err.status);
-  //     });
-  // }, []);
-
-  // React.useEffect(() => {
-  //   api
-  //     .random()
-  //     .then(res => {
-  //       console.log('777', res);
-  //       setRandomGif(res.data);
-  //       console.log('999', randomGif);
-  //     })
-  //     .catch(err => {
-  //       console.log(err.status);
-  //     });
-  // }, []);
   function handleSearchMenu() {
     setGifs(searchGifs);
   }
