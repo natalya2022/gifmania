@@ -109,12 +109,12 @@ function App() {
             <Route path="/random" element={<Random gif={randomGif} gifs={renderList} />} />
             <Route path="*" element={<Search to="/" replace />} />
           </Routes>
+          <Footer />
           <ToolMessage
             onClose={closeMessage}
             toolMessage={toolMessageText}
             isOpen={isToolMessageOpen}
           />
-          <Footer />
         </div>
       </div>
     </div>
