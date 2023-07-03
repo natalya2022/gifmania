@@ -16,7 +16,7 @@ function App() {
   const [randomGif, setRandomGif] = useState({});
   const [isToolMessageOpen, setIsToolMessageOpen] = useState(false);
   const [toolMessageText, setToolMessageText] = useState({ text: '' });
-  
+
   React.useEffect(() => {
     Promise.all([api.trending(), api.random()])
       .then(res => {
@@ -73,7 +73,7 @@ function App() {
   function handleSearchGifs(word) {
     api.search(word).then(res => {
       console.log(res);
-      if (res.data.length === 0) {        
+      if (res.data.length === 0) {
         setToolMessageText({ text: 'Результатов не найдено!' });
         handleToolMessageOpen();
       } else {
