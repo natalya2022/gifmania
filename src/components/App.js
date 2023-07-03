@@ -57,7 +57,9 @@ function App() {
   //       console.log(err.status);
   //     });
   // }, []);
-
+  function handleSearchMenu() {
+    setGifs(searchGifs);
+  }
   function handleRandomClick() {
     api.random().then((res) => {
       setRandomGif(res.data);
@@ -106,7 +108,8 @@ function App() {
         // alert('Результатов не найдено!');
         setToolMessageText({text: 'Результатов не найдено!'});
         handleToolMessageOpen();        
-      } else {      
+      } else {
+        setSearchGifs(res.data);
         setGifs(res.data);
       }
     });
@@ -121,7 +124,7 @@ function App() {
     <div className="root">
       <div className="page">
         <div className="wrap">
-          <Header onRandomClick={handleRandomClick} onTrendClick={handleClickMenu}/>
+          <Header onRandomClick={handleRandomClick} onTrendClick={handleClickMenu} onSearchClick={handleSearchMenu}/>
           <Routes>
             <Route path="/" element={<Search gifs={renderList} onSearch={handleSearchGifs} renderPages={renderPageNumber} />} />
             <Route path="/trends" element={<Trends gifs={renderList} renderPages={renderPageNumber} />} />
