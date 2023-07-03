@@ -1,13 +1,13 @@
 import React from 'react';
 import GifGrid from './GifGrid';
-import Footer from './Footer';
+import Pagination from './Pagination';
 const Trends = ({ gifs, renderPages }) => {
   return (
     <>
     <main className="content">
       <GifGrid gifs={gifs} />
     </main>
-    <Footer renderPages={renderPages}/>
+    <Pagination renderPages={renderPages}/>
     </>
   );
 };

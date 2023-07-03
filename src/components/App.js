@@ -5,7 +5,7 @@ import Search from './Search';
 import Trends from './Trends';
 import Random from './Random';
 import Header from './Header';
-import Footer from './Footer';
+import Pagination from './Pagination';
 import Card from './Card';
 // import Api from '../utils/api';
 import { api } from '../utils/api';
@@ -89,7 +89,7 @@ function App() {
 
   const renderPageNumber = pageNumber.map(number => {
     return (
-      <li className='footer__page' key={number} id={number} onClick={handleClick}>
+      <li className='pagination__page' key={number} id={number} onClick={handleClick}>
         {number}
       </li>
     );

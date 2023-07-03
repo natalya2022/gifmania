@@ -1,6 +1,6 @@
 import React from 'react';
 import GifGrid from './GifGrid';
-import Footer from './Footer';
+import Pagination from './Pagination';
 const Search = ({ onSearch, gifs, renderPages }) => {
   const [search, setSearch] = React.useState({search: ""});
   function handleChange(evt) {
@@ -25,7 +25,7 @@ const Search = ({ onSearch, gifs, renderPages }) => {
         </form>
       </div>
       <GifGrid gifs={gifs} />
-      <Footer renderPages={renderPages}/>
+      <Pagination renderPages={renderPages}/>
     </>
   )
 }
