@@ -29,6 +29,33 @@ function App() {
       });
   }, []);
 
+  // React.useEffect(() => {
+  //   api
+  //     .trending()
+  //     .then(res => {
+  //       console.log(res);
+  //       setTrendingGifs(res.data);
+  //     })
+  //     .catch(err => {
+  //       console.log(err.status);
+  //     });
+  // }, []);
+
+  // React.useEffect(() => {
+  //   api
+  //     .random()
+  //     .then(res => {
+  //       console.log('777', res);
+  //       setRandomGif(res.data);
+  //       console.log('999', randomGif);
+  //     })
+  //     .catch(err => {
+  //       console.log(err.status);
+  //     });
+  // }, []);
+  function handleSearchMenu() {
+    setGifs(searchGifs);
+  }
   function handleRandomClick() {
     api.random().then(res => {
       setRandomGif(res.data);
@@ -90,7 +117,7 @@ function App() {
     <div className="root">
       <div className="page">
         <div className="wrap">
-          <Header onRandomClick={handleRandomClick} onTrendClick={handleClickMenu} />
+          <Header onRandomClick={handleRandomClick} onTrendClick={handleClickMenu} onSearchClick={handleSearchMenu}/>
           <Routes>
             <Route
               path="/"
