@@ -37,3 +37,6 @@
 
 @import url('./blocks/pagination/__page/pagination__page.css');
 @import url('./blocks/pagination/__list/pagination__list.css');
+
+@import url("./blocks/footer/footer.css");
+@import url("./blocks/footer/__copyright/footer__copyright.css");
