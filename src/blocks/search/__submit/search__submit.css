@@ -1,17 +1,16 @@
 .search__submit {
-    background-image: url(../../../images/search.svg);
-    width: 40px;
-    height: 40px;
+    background-image: url(../../../images/searchW.svg);
+    min-width: 40px;
+    min-height: 40px;
     background-repeat: no-repeat;
     background-size: contain;
     padding: 0;
     /* background-color: rgb(218, 218, 218); */
-    background-color: #d7ceeb;
+    background-color: #192849;
     border: none;
     cursor: pointer;
-    border-radius: 3px;
-    border: ridge 2px gray;
     background-position: center center;
+    border-bottom: solid 2px  rgb(5, 153, 190);
 }
 
 .search__submit:hover {

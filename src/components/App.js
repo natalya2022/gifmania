@@ -30,6 +30,7 @@ function App() {
       });
   }, []);
   function handleSearchMenu() {
+    setPage(1);
     setGifs(searchGifs);
   }
   function handleRandomClick() {
@@ -43,12 +44,23 @@ function App() {
     api.trending().then(res => {
       setPage(1);
       setGifs(res.data);
+      setSearchGifs(gifs);
     });
   }
   const [currentPage, setPage] = React.useState(1);
   const perPage = 9;
   function handleClick(evt) {
     setPage(Number(evt.target.id));
+  }
+  function handlePagDownClick() {
+    if(currentPage !== 1) {
+      setPage(currentPage - 1);
+    }
+  }
+  function handlePagUpClick() {
+    if(currentPage !== pageNumber.length) {
+      setPage(currentPage + 1);
+    }
   }
   const indexOfLast = currentPage * perPage;
   const indexOfFirst = indexOfLast - perPage;
@@ -80,7 +92,9 @@ function App() {
         setToolMessageText({ text: 'Результатов не найдено!' });
         handleToolMessageOpen();
       } else {
+        setPage(1);
         setGifs(res.data);
+        setSearchGifs(res.data);
       }
     });
   }
@@ -102,12 +116,14 @@ function App() {
                   gifs={renderList}
                   onSearch={handleSearchGifs}
                   renderPages={renderPageNumber}
+                  onDownClick={handlePagDownClick}
+                  onUpClick={handlePagUpClick}
                 />
               }
             />
             <Route
               path="/trends"
-              element={<Trends gifs={renderList} renderPages={renderPageNumber} />}
+              element={<Trends gifs={renderList} renderPages={renderPageNumber} onDownClick={handlePagDownClick} onUpClick={handlePagUpClick}/>}
             />
             <Route path="/random" element={<Random gif={randomGif} gifs={renderList} />} />
             <Route path="*" element={<Search to="/" replace />} />

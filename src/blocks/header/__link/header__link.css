@@ -7,9 +7,11 @@
     color: #FFFFFF;
     margin-top: 7px;
     transition: opacity 0.5s;
+    transition: border 0.5s;
 }
 
 .header__link:hover {
     opacity: .7;
     cursor: pointer;
+    border-bottom: 1px solid;
 }
