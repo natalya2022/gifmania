@@ -1,17 +1,17 @@
 .search__reset {
-    background-image: url(../../../images/reset.svg);
-    width: 40px;
-    height: 40px;
+    background-image: url(../../../images/resetW.svg);
+    min-width: 40px;
+    min-height: 40px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
     padding: 0;
-    background-color: #d7ceeb;
+    background-color: #192849;
     border: none;
-    margin-right: 5px;
+    margin-right: 10px;
     cursor: pointer;
-    border-radius: 3px;
-    border: ridge 2px gray;
+    transition: opacity 0.2s linear;
+    border-bottom: solid 2px  rgb(5, 153, 190);
 }
 
 .search__reset:hover {

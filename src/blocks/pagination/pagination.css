@@ -1,3 +1,6 @@
 .pagination {
+    display: block;
+    margin: auto;
     min-height: 40px;
+    padding-top: 35px;
 }
