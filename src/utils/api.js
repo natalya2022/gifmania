@@ -4,7 +4,7 @@ export default class Api {
     this._key = key;
   }
   trending() {
-    return fetch(`${this._URL}trending?api_key=${this._key}`, {
+    return fetch(`${this._URL}trending?api_key=${this._key}&limit=30`, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
       })
@@ -13,7 +13,7 @@ export default class Api {
       });
   }
   search(word) {
-    return fetch(`${this._URL}search?api_key=${this._key}&q=${word}`, {
+    return fetch(`${this._URL}search?api_key=${this._key}&q=${word}&limit=30`, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
       })

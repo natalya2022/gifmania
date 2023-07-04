@@ -1,10 +1,14 @@
 .search {
     margin: auto;
-    padding: 0 19px;
+    margin-left: 19px;
+    margin-right: 19px;
+    padding: 0;
 }
 
 @media screen and (min-width: 880px) {
     .search {
+        margin-left: 0px;
+        margin-right: 0px;
         padding: 0;
     }
 }

@@ -18,6 +18,7 @@ function App() {
   const [isToolMessageOpen, setIsToolMessageOpen] = useState(false);
   const [toolMessageText, setToolMessageText] = useState({ text: '' });
   const [changeTheme, setChangeTheme] = useState(false);
+
   React.useEffect(() => {
     Promise.all([api.trending(), api.random()])
       .then(res => {
@@ -30,32 +31,33 @@ function App() {
         console.log(err.status);
       });
   }, []);
-
+  //Смена темы
   function handleChangeTheme() {
     setChangeTheme(!changeTheme);
   }
-  
-  function handleSearchMenu() {
+  //Клики меню
+  function handleSearchMenuClick() {
     setPage(1);
     setGifs(searchGifs);
   }
-  function handleRandomClick() {
+  function handleRandomMenuClick() {
     api.random().then(res => {
       setRandomGif(res.data);
       setGifs(trendingGifs);
       setPage(1);
     });
   }
-  function handleClickMenu() {
+  function handleTrendsMenuClick() {
     api.trending().then(res => {
       setPage(1);
       setGifs(res.data);
       setSearchGifs(searchGifs);
     });
   }
+  //Пагинация
   const [currentPage, setPage] = React.useState(1);
-  const perPage = 9;
-  function handleClick(evt) {
+  const perPage = 6;
+  function handleSelectPageClick(evt) {
     setPage(Number(evt.target.id));
   }
   function handlePagDownClick() {    
@@ -78,20 +80,22 @@ function App() {
   for (let i = 1; i <= Math.ceil(gifs.length / perPage); i++) {
     pageNumber.push(i);
   }
-
   const renderPageNumber = pageNumber.map(number => {
     const style = 'pagination__page' + (currentPage === number ? ' active' : '');
     return (
-      <li className={changeTheme? `${style} pagination__page_light-theme` : `${style}`} key={number} id={number} onClick={handleClick}>
+      <li className={changeTheme? `${style} pagination__page_light-theme` : `${style}`} key={number} id={number} onClick={handleSelectPageClick}>
         {number}
       </li>
     );
   });
-
+  //Блок попапа с сообщением
   function handleToolMessageOpen() {
     setIsToolMessageOpen(true);
   }
-
+  const closeMessage = () => {
+    setIsToolMessageOpen(false);
+  };
+  //Поиск гифок
   function handleSearchGifs(word) {
     if (word === '') {
       setToolMessageText({ text: 'Введите поисковый запрос!' });
@@ -110,18 +114,14 @@ function App() {
     });
   }
 
-  const closeMessage = () => {
-    setIsToolMessageOpen(false);
-  };
-
   return (
     <div className={changeTheme? `root light-theme` : `root`}>
       <div className={changeTheme? `page light-theme`: `page`}>
         <div className="wrap">
           <Header
-            onRandomClick={handleRandomClick}
-            onTrendClick={handleClickMenu}
-            onSearchClick={handleSearchMenu}
+            onRandomClick={handleRandomMenuClick}
+            onTrendClick={handleTrendsMenuClick}
+            onSearchClick={handleSearchMenuClick}
             onChangeTheme={handleChangeTheme}
             isTheme={changeTheme}
           />

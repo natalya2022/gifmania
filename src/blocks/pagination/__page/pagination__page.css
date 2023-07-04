@@ -7,10 +7,10 @@
 
 .pagination__page:hover {
     border-bottom: 1px solid;
-    color: #a393eb;
+    color: #457af5;
 }
 
 .pagination__page.disabled:hover {
     border-bottom: none;
-    color: gray;
+    color: #808080;
 }
