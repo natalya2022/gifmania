@@ -3,11 +3,6 @@
     max-width: 1280px;
     margin: 0 auto;
     font-family: 'Inter', Arial, sans-serif;
-    /* background: black; */
     background: #0f172a;
     transition: background-color .3s linear;
 }
-
-/* * {
-    outline: 1px solid red;
-} */

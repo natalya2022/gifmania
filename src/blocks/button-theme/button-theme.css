@@ -1,5 +1,7 @@
 .button-theme {
-    position: relative;
+    position: absolute;
+    top: 30px;
+    right: 30px;
     background-color: #192849;
     display: flex;
 	width: 40px;

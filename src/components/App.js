@@ -24,6 +24,7 @@ function App() {
         setTrendingGifs(res[0].data);
         setRandomGif(res[1].data);
         setGifs(res[0].data);
+        setSearchGifs(res[0].data);
       })
       .catch(err => {
         console.log(err.status);
@@ -49,7 +50,7 @@ function App() {
     api.trending().then(res => {
       setPage(1);
       setGifs(res.data);
-      setSearchGifs(gifs);
+      setSearchGifs(searchGifs);
     });
   }
   const [currentPage, setPage] = React.useState(1);

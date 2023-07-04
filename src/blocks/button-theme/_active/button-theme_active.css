@@ -1,7 +1,7 @@
 .button-theme_active {
-    background-color: #cfcfcf;
+    background-color: #749DD6;
 }
 .button-theme_active::before {
-    background-color: #888888;
+    background-color: #fabb46;
     transform: translateX(21px);
 }

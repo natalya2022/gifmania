@@ -1,11 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import headerLogo from './../images/logo22.png';
+import headerLogoLight from './../images/logo_darkblue.png';
+import headerLogoDark from './../images/logo22.png';
 
 const Header = ({ onTrendClick, onRandomClick, onSearchClick, onChangeTheme, isTheme }) => {
   return (
     <header className="header">
-      <img src={headerLogo} alt="Логотип" className="header__logo" />
+      <img src={isTheme? `${headerLogoLight}` : `${headerLogoDark}`} alt="Логотип" className="header__logo" />
       <div className={isTheme? `header__navbar header__navbar_light-theme` : `header__navbar`}>        
         <NavLink to="/" className={isTheme? `header__link header__link_light-theme` : `header__link`} onClick={onSearchClick}>
           Поиск
