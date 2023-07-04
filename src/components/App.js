@@ -51,14 +51,9 @@ function App() {
     });
   }
   function handleTrendsMenuClick() {
-    api.trending().then(res => {
+      setGifs(trendingGifs);
       setPage(1);
-      setGifs(res.data);
       setSearchGifs(searchGifs);
-    })
-    .catch((err) => {
-      console.log(err.status);
-    });
   }
   //Пагинация
   const [currentPage, setPage] = React.useState(1);
