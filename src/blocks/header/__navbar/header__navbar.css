@@ -10,7 +10,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 12px;
-    align-items: center;
+    align-items: flex-end;
+    transition: color 0.3s linear;
 }
 
 @media screen and (min-width: 619px) {

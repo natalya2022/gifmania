@@ -17,7 +17,7 @@ function App() {
   const [randomGif, setRandomGif] = useState({});
   const [isToolMessageOpen, setIsToolMessageOpen] = useState(false);
   const [toolMessageText, setToolMessageText] = useState({ text: '' });
-
+  const [changeTheme, setChangeTheme] = useState(false);
   React.useEffect(() => {
     Promise.all([api.trending(), api.random()])
       .then(res => {
@@ -29,6 +29,11 @@ function App() {
         console.log(err.status);
       });
   }, []);
+
+  function handleChangeTheme() {
+    setChangeTheme(!changeTheme);
+  }
+  
   function handleSearchMenu() {
     setPage(1);
     setGifs(searchGifs);
@@ -66,7 +71,7 @@ function App() {
   const indexOfFirst = indexOfLast - perPage;
   const currentList = gifs.slice(indexOfFirst, indexOfLast);
   const renderList = currentList.map((page, index) => {
-    return <Card key={index} gif={page}></Card>;
+    return <Card key={index} gif={page} isTheme={changeTheme}></Card>;
   });
   const pageNumber = [];
   for (let i = 1; i <= Math.ceil(gifs.length / perPage); i++) {
@@ -76,7 +81,7 @@ function App() {
   const renderPageNumber = pageNumber.map(number => {
     const style = 'pagination__page' + (currentPage === number ? ' active' : '');
     return (
-      <li className={style} key={number} id={number} onClick={handleClick}>
+      <li className={changeTheme? `${style} pagination__page_light-theme` : `${style}`} key={number} id={number} onClick={handleClick}>
         {number}
       </li>
     );
@@ -109,13 +114,15 @@ function App() {
   };
 
   return (
-    <div className="root">
-      <div className="page">
+    <div className={changeTheme? `root light-theme` : `root`}>
+      <div className={changeTheme? `page light-theme`: `page`}>
         <div className="wrap">
           <Header
             onRandomClick={handleRandomClick}
             onTrendClick={handleClickMenu}
             onSearchClick={handleSearchMenu}
+            onChangeTheme={handleChangeTheme}
+            isTheme={changeTheme}
           />
           <Routes>
             <Route
@@ -129,6 +136,7 @@ function App() {
                   onUpClick={handlePagUpClick}
                   currentPage={currentPage}
                   maxPage={pageNumber.length}
+                  isTheme={changeTheme}
                 />
               }
             />
@@ -142,13 +150,14 @@ function App() {
                   onUpClick={handlePagUpClick}
                   currentPage={currentPage}
                   maxPage={pageNumber.length}
+                  isTheme={changeTheme}
                 />
               }
             />
-            <Route path="/random" element={<Random gif={randomGif} gifs={renderList} />} />
+            <Route path="/random" element={<Random gif={randomGif} gifs={renderList} isTheme={changeTheme} />} />
             <Route path="*" element={<Search to="/" replace />} />
           </Routes>
-          <Footer />
+          <Footer isTheme={changeTheme}/>
           <ToolMessage
             onClose={closeMessage}
             toolMessage={toolMessageText}

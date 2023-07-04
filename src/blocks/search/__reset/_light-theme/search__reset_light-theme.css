@@ -1,0 +1,5 @@
+.search__reset_light-theme {
+    background-image: url(../../../../images/reset.svg);
+    background-color: #cfcfcf;
+    border-bottom: solid 2px rgb(0, 0, 0);
+}

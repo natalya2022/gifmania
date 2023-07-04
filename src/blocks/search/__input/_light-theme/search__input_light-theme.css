@@ -1,0 +1,10 @@
+.search__input_light-theme {
+    color:#000;
+    background-color: #cfcfcf;
+    border-bottom: solid 2px rgb(0, 0, 0);
+}
+
+.search__input_light-theme::placeholder {
+    color: #000;
+    text-align: center;
+}

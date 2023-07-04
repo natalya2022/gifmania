@@ -5,4 +5,5 @@
     color: white;
     font-family: 'Inter', Arial, sans-serif;
     background: #0f172a;
+    transition: background-color .3s linear;
 }

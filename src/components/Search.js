@@ -1,7 +1,7 @@
 import React from 'react';
 import GifGrid from './GifGrid';
 import Pagination from './Pagination';
-const Search = ({ onSearch, gifs, renderPages, onDownClick, onUpClick, currentPage, maxPage }) => {
+const Search = ({ onSearch, gifs, renderPages, onDownClick, onUpClick, currentPage, maxPage, isTheme }) => {
   const [search, setSearch] = React.useState({ search: '' });
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -20,15 +20,15 @@ const Search = ({ onSearch, gifs, renderPages, onDownClick, onUpClick, currentPa
       <div className="search">
         <form className="search__form" onSubmit={handleSubmit}>
           <input
-            className="search__input"
+            className={isTheme? `search__input search__input_light-theme` : `search__input`}
             type="search"
             name="search"
             placeholder="Поле поиска"
             onChange={handleChange}
             value={setSearch.search}
           ></input>
-          <button className="search__reset" onClick={handleReset} type="reset"></button>
-          <button className="search__submit" type="submit"></button>
+          <button className={isTheme? `search__reset search__button search__reset_light-theme` : `search__reset search__button`} onClick={handleReset} type="reset"></button>
+          <button className={isTheme? `search__submit search__button search__submit_light-theme` : `search__submit search__button`} type="submit"></button>
         </form>
       </div>
       <GifGrid gifs={gifs} />
@@ -38,6 +38,7 @@ const Search = ({ onSearch, gifs, renderPages, onDownClick, onUpClick, currentPa
         onUpClick={onUpClick}
         currentPage={currentPage}
         maxPage={maxPage}
+        isTheme={isTheme}
       />
     </main>
   );
