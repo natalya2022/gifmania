@@ -8,10 +8,9 @@
     padding: 0;
     background-color: #192849;
     border: none;
-    margin-right: 10px;
     cursor: pointer;
     transition: opacity 0.2s linear;
-    border-bottom: solid 2px  rgb(5, 153, 190);
+    border-bottom: solid 2px rgb(5, 153, 190);
 }
 
 .search__reset:hover {

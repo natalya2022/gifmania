@@ -1,10 +1,10 @@
 .search {
-    width: 95%;
     margin: auto;
+    padding: 0 19px;
 }
 
-@media screen and (min-width: 619px) {
+@media screen and (min-width: 880px) {
     .search {
-        width: 100%;
+        padding: 0;
     }
 }
