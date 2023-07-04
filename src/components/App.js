@@ -45,6 +45,9 @@ function App() {
       setRandomGif(res.data);
       setGifs(trendingGifs);
       setPage(1);
+    })
+    .catch((err) => {
+      console.log(err.status);
     });
   }
   function handleTrendsMenuClick() {
@@ -52,6 +55,9 @@ function App() {
       setPage(1);
       setGifs(res.data);
       setSearchGifs(searchGifs);
+    })
+    .catch((err) => {
+      console.log(err.status);
     });
   }
   //Пагинация
@@ -111,6 +117,9 @@ function App() {
         setGifs(res.data);
         setSearchGifs(res.data);
       }
+    })
+    .catch((err) => {
+      console.log(err.status);
     });
   }
 
