@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 12px;
-    align-items: flex-end;
+    align-items: center;
     transition: color 0.3s linear;
 }
 
