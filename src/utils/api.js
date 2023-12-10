@@ -34,5 +34,7 @@ export default class Api {
 
 export const api = new Api({
   baseURL: "https://api.giphy.com/v1/gifs/",
-  key: "RdGZuc1yz5OxCXh5U86bmFqDT03Tw7ij"
+  // key: "RdGZuc1yz5OxCXh5U86bmFqDT03Tw7ij"
+  // key: "oL8NSfIxiS9ZRaMxHZGlYstjwsTabLUv"
+  key: "G7ZXpMANBc3jxQuel7dgumbk4Lrw9Zhn"
 });

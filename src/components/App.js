@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './../index.css';
 import Search from './Search';
 import Trends from './Trends';
@@ -25,6 +26,7 @@ function App() {
         setTrendingGifs(res[0].data);
         setRandomGif(res[1].data);
         setGifs(res[0].data);
+        console.log(res[0].data, 'loaded');
         setSearchGifs(res[0].data);
       })
       .catch(err => {
@@ -118,6 +120,9 @@ function App() {
     });
   }
 
+  const location = useLocation();
+  console.log(location.pathname);
+
   return (
     <div className={changeTheme? `root light-theme` : `root`}>
       <div className={changeTheme? `page light-theme`: `page`}>
@@ -132,6 +137,21 @@ function App() {
           <Routes>
             <Route
               path="/"
+              element={
+                <Search
+                  gifs={renderList}
+                  onSearch={handleSearchGifs}
+                  renderPages={renderPageNumber}
+                  onDownClick={handlePagDownClick}
+                  onUpClick={handlePagUpClick}
+                  currentPage={currentPage}
+                  maxPage={pageNumber.length}
+                  isTheme={changeTheme}
+                />
+              }
+            />
+             <Route
+              path="/gifmania/"
               element={
                 <Search
                   gifs={renderList}
